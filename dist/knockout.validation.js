@@ -1066,7 +1066,7 @@ ko.bindingHandlers['validationMessage'] = { // individual error message, if modi
 		}
 
 		isModified = obsv.isModified && obsv.isModified();
-		isValid = obsv.isValid && obsv.isValid();
+		isValid = !!obsv.isValid ? obsv.isValid() : true;
 
 		var error = null;
 		if (!config.messagesOnModified || isModified) {
@@ -1105,7 +1105,7 @@ ko.bindingHandlers['validationElement'] = {
 		}
 
 		isModified = obsv.isModified && obsv.isModified();
-		isValid = obsv.isValid && obsv.isValid();
+		isValid = !!obsv.isValid ? obsv.isValid() : true;
 
 		// create an evaluator function that will return something like:
 		// css: { validationElement: true }
